@@ -94,7 +94,7 @@ class _UserDetailsState extends State<UserDetails> {
           ),
           ElevatedButton (
             onPressed: ()async {
-              _firebaseFirestore.collection("users").doc(_phone.text).set({
+              await _firebaseFirestore.collection("users").doc(_phone.text).set({
                 'name': _name.text,
                 'Phone':_phone.text,
                 'Age':_age.text,

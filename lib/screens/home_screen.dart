@@ -10,13 +10,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('users/${UserDetails.p}').snapshots(),
-    builder:(context,AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-    if (streamSnapshot.connectionState == ConnectionState.waiting) {
-    return const Center(child: CircularProgressIndicator());
-    }
-    else {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -30,7 +24,6 @@ class MyHomePage extends StatelessWidget {
       ),
       drawer: const CustomNavigationDrawer(),
     );
-  }
-});
+
   }
 }
