@@ -1,16 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:projects/providers/diagnosis_provider.dart';
 import 'package:projects/screen_routes.dart';
 import 'package:projects/screens/diagnostics_screen.dart';
 import 'package:projects/screens/home_screen.dart';
+import 'package:projects/screens/image_display_screen.dart';
 import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/medication.dart';
 import 'package:projects/screens/tests_screen.dart';
+import 'package:provider/provider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (_)=> DiagnosticsProvider())],
+  child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
           diagnosticScreen : (context) => const Diagnostics(),
           testScreen : (context) => const Tests(),
           medicationScreen : (context) => const Medications(),
+          imageScreen : (context) =>  const ImageScreen(),
       },
     );
   }
