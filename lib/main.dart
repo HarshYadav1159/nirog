@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
 import 'package:projects/screens/diagnostics_screen.dart';
 import 'package:projects/screens/home_screen.dart';
-import 'package:projects/screens/login_screen.dart';
+import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/medication.dart';
 import 'package:projects/screens/tests_screen.dart';
 

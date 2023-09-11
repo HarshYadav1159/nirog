@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/navigation_drawer.dart';
+import '../../widgets/navigation_drawer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,13 +10,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   TextEditingController countryCode = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
   @override
   void initState() {
-    // TODO: implement initState
+    // Initially display +91 in the text field
     countryCode.text = "+91";
     super.initState();
   }
@@ -54,15 +53,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
                 children: [
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   SizedBox(
                     width: 40,
-                    child: TextField(controller: countryCode,
-                      decoration: InputDecoration(border: InputBorder.none),),
+
+                    //Display Country Code-----------
+                    child: TextField(
+                      controller: countryCode,
+                      decoration: InputDecoration(border: InputBorder.none),
+                    ),
                   ),
 
-                  Text("|",style: TextStyle(fontSize: 33,color: Colors.grey),),
-                  Expanded(child: TextField(decoration: InputDecoration(border: InputBorder.none),))
+                  Text(
+                    "|",
+                    style: TextStyle(fontSize: 33, color: Colors.grey),
+                  ),
+
+                  //Enter Mobile Number-------------
+                  Expanded(
+                      child: TextField(
+                    decoration: InputDecoration(border: InputBorder.none),
+                  ))
                 ],
               ),
             ),
