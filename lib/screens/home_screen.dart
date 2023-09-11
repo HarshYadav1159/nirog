@@ -5,18 +5,16 @@ import 'package:projects/screens/user_detail_screen.dart';
 
 import '../widgets/navigation_drawer.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('users/${UserDetails.p}').snapshots(),
-    builder:(context,AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-    if (streamSnapshot.connectionState == ConnectionState.waiting) {
-    return const Center(child: CircularProgressIndicator());
-    }
-    else {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -30,7 +28,5 @@ class MyHomePage extends StatelessWidget {
       ),
       drawer: const CustomNavigationDrawer(),
     );
-  }
-});
   }
 }

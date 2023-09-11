@@ -57,11 +57,10 @@ Future<bool> checkUser()async{
         border: Border.all(color: borderColor),
       ),
     );
-
     var code="";
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(left: 25, right: 25),
+        //margin: EdgeInsets.only(left: 25, right: 25),
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
