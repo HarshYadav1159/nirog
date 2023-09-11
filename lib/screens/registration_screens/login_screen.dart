@@ -1,10 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:projects/screen_routes.dart';
 
 import '../../widgets/navigation_drawer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
+   static String verify="";
+   static String p="";
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -74,13 +77,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   //Enter Mobile Number-------------
                   Expanded(
                       child: TextField(
-                    decoration: InputDecoration(border: InputBorder.none),
+
+                        onChanged: (value){
+                          LoginScreen.p = value;
+                          phoneController.text=value;
+                        },
+                        keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(border: InputBorder.none, hintText: 'Phone Number'),
                   ))
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
+            ElevatedButton (
+              onPressed: ()async {
+                await FirebaseAuth.instance.verifyPhoneNumber(
+                  phoneNumber: '${countryCode.text+phoneController.text}',
+                  verificationCompleted: (PhoneAuthCredential credential) {},
+                  verificationFailed: (FirebaseAuthException e) {},
+                  codeSent: (String verificationId, int? resendToken) {
+                    LoginScreen.verify=verificationId;
+                    Navigator.pushNamed(context, otpScreen);
+                  },
+                  codeAutoRetrievalTimeout: (String verificationId) {},
+                );
+                },
               child: Text(
                 'Get OTP',
                 style: TextStyle(color: Colors.white),

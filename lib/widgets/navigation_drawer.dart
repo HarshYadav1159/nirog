@@ -40,7 +40,7 @@ class CustomNavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person_2_rounded),
             title: Text("Profile"),
-            onTap: () {},
+            onTap: () {Navigator.pushNamed(context, homeScreen);},
           ),
           ListTile(
             leading: const Icon(Icons.medical_information),
@@ -50,7 +50,9 @@ class CustomNavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.health_and_safety_outlined),
             title: Text("Tests"),
-            onTap: () {Navigator.pushNamed(context, testScreen);},
+            onTap: () {
+
+              Navigator.pushNamed(context, testScreen);},
           ),
           ListTile(
             leading: const Icon(Icons.healing_rounded),
