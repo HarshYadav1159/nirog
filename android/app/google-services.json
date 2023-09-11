@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226111730700",
+    "project_id": "nirog-a052e",
+    "storage_bucket": "nirog-a052e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226111730700:android:036de7e289b656f241aa29",
+        "android_client_info": {
+          "package_name": "com.nirog_m.projects"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT157tXaCbh_QU3fLhN82bI3ZsRy-TS3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
