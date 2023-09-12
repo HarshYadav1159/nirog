@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
+import 'package:projects/screens/registration_screens/login_screen.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
@@ -51,13 +52,17 @@ class CustomNavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.health_and_safety_outlined),
             title: Text("Tests"),
             onTap: () {
-
               Navigator.pushNamed(context, testScreen);},
           ),
           ListTile(
             leading: const Icon(Icons.healing_rounded),
             title: Text("Medication"),
             onTap:() {Navigator.pushNamed(context, medicationScreen);},
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: Text("Logout!"),
+            onTap:() {Navigator.pushNamed(context, loginScreen);},
           ),
         ],
       );

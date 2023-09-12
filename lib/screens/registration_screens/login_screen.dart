@@ -8,6 +8,7 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
    static String verify="";
    static String p="";
+   static bool isLogin = false;
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
