@@ -96,8 +96,8 @@ class _UserDetailsState extends State<UserDetails> {
             onPressed: ()async {
               await _firebaseFirestore.collection("users").doc(_phone.text).set({
                 'name': _name.text,
-                'Phone':_phone.text,
-                'Age':_age.text,
+                'phone':int.parse(_phone.text),
+                'age':int.parse(_age.text),
                 // 'password': password,
               });
               Navigator.pushNamed(context, homeScreen);
