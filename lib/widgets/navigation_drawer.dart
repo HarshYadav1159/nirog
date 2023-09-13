@@ -1,11 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
-import 'package:projects/screens/registration_screens/login_screen.dart';
 
-
-import '../models/user.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
@@ -33,37 +28,36 @@ class CustomNavigationDrawer extends StatelessWidget {
               height: 108,
               width: 108,
             ),
-            SizedBox(height: 12),
-            FutureBuilder(
-                future: readUser(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    final user = snapshot.data;
-
-                    return user == null
-                        ? Center(
-                            child: Text('No User'),
-                          )
-                        : Text(user.name!);
-                  } else {
-                    return SizedBox();
-                  }
-                }),
-            FutureBuilder(
-                future: readUser(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    final user = snapshot.data;
-
-                    return user == null
-                        ? Center(
-                            child: Text('No User'),
-                          )
-                        : Text(user.phone!.toString());
-                  } else {
-                    return SizedBox();
-                  }
-                })
+            const SizedBox(height: 12),
+            // FutureBuilder(
+            //     future: readUser(),
+            //     builder: (context, snapshot) {
+            //       if (snapshot.hasData) {
+            //         final user = snapshot.data;
+            //         return user == null
+            //             ? Center(
+            //                 child: Text('No User'),
+            //               )
+            //             : Text(user.name!);
+            //       } else {
+            //         return SizedBox();
+            //       }
+            //     }),
+            // FutureBuilder(
+            //     future: readUser(),
+            //     builder: (context, snapshot) {
+            //       if (snapshot.hasData) {
+            //         final user = snapshot.data;
+            //
+            //         return user == null
+            //             ? Center(
+            //                 child: Text('No User'),
+            //               )
+            //             : Text(user.phone!.toString());
+            //       } else {
+            //         return SizedBox();
+            //       }
+            //     })
           ],
         ),
       );
@@ -109,14 +103,14 @@ class CustomNavigationDrawer extends StatelessWidget {
         ],
       );
 
-  Future<UserModel> readUser() async {
-    String id = LoginScreen.p;
-    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
-    final snapshot = await docUser.get();
-
-    if (snapshot.exists) {
-      return UserModel.fromJson(snapshot.data()!);
-    }
-    throw {print("Error Fetching User data")};
-  }
+  // Future<UserModel> readUser() async {
+  //   String id = LoginScreen.p;
+  //   final docUser = FirebaseFirestore.instance.collection('users').doc(id);
+  //   final snapshot = await docUser.get();
+  //
+  //   if (snapshot.exists) {
+  //     return UserModel.fromJson(snapshot.data()!);
+  //   }
+  //   throw {print("Error Fetching User data")};
+  // }
 }
