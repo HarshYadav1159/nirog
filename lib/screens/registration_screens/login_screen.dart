@@ -82,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onChanged: (value){
                           LoginScreen.p = value;
                           phoneController.text=value;
+
                         },
                         keyboardType: TextInputType.phone,
                     decoration: InputDecoration(border: InputBorder.none, hintText: 'Phone Number'),
@@ -92,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton (
               onPressed: ()async {
                 await FirebaseAuth.instance.verifyPhoneNumber(
-                  phoneNumber: '${countryCode.text+phoneController.text}',
+                  phoneNumber: countryCode.text+phoneController.text,
                   verificationCompleted: (PhoneAuthCredential credential) {},
                   verificationFailed: (FirebaseAuthException e) {},
                   codeSent: (String verificationId, int? resendToken) {

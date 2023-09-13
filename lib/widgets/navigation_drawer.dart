@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
-import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/user_detail_screen.dart';
 
 import '../models/user.dart';
@@ -24,38 +23,49 @@ class CustomNavigationDrawer extends StatelessWidget {
   }
 
   Widget buildHeader(context) => Container(
-    padding: EdgeInsets.only(
-        top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
-    color: Colors.lightBlue,
-    child: Column(
-      children: [
-        Container(
-          child: Image.asset('assets/images/profile.png'),
-          height: 108,
-          width: 108,
+        padding: EdgeInsets.only(
+            top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
+        color: Colors.lightBlue,
+        child: Column(
+          children: [
+            Container(
+              child: Image.asset('assets/images/profile.png'),
+              height: 108,
+              width: 108,
+            ),
+            const SizedBox(height: 12),
+            // FutureBuilder(
+            //     future: readUser(),
+            //     builder: (context, snapshot) {
+            //       if (snapshot.hasData) {
+            //         final user = snapshot.data;
+            //         return user == null
+            //             ? Center(
+            //                 child: Text('No User'),
+            //               )
+            //             : Text(user.name!);
+            //       } else {
+            //         return SizedBox();
+            //       }
+            //     }),
+            // FutureBuilder(
+            //     future: readUser(),
+            //     builder: (context, snapshot) {
+            //       if (snapshot.hasData) {
+            //         final user = snapshot.data;
+            //
+            //         return user == null
+            //             ? Center(
+            //                 child: Text('No User'),
+            //               )
+            //             : Text(user.phone!.toString());
+            //       } else {
+            //         return SizedBox();
+            //       }
+            //     })
+          ],
         ),
-        SizedBox(height: 12),
-        // FutureBuilder(future: readUser(), builder: (context,snapshot){
-        //   if(snapshot.hasData){
-        //     final user = snapshot.data;
-        //
-        //     return user == null ? Center(child: Text('No User'),) : Text(user.name!);
-        //   }else{
-        //     return SizedBox();
-        //   }
-        // }),
-        // FutureBuilder(future: readUser(), builder: (context,snapshot){
-        //   if(snapshot.hasData){
-        //     final user = snapshot.data;
-        //
-        //     return user == null ? Center(child: Text('No User'),) : Text(user.phone!.toString());
-        //   }else{
-        //     return SizedBox();
-        //   }
-        // })
-      ],
-    ),
-  );
+      );
 
   //TODO : Implement OnTap
   Widget buildMenuItems(context) => Column(
@@ -90,16 +100,14 @@ class CustomNavigationDrawer extends StatelessWidget {
     ],
   );
 
-  Future<UserModel> readUser() async {
-    String id = LoginScreen.p;
-    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
-    final snapshot = await docUser.get();
-
-    if(snapshot.exists){
-      return UserModel.fromJson(snapshot.data()!);
-    }
-    throw{
-      print("Error Fetching User data")
-    };
-  }
+  // Future<UserModel> readUser() async {
+  //   String id = LoginScreen.p;
+  //   final docUser = FirebaseFirestore.instance.collection('users').doc(id);
+  //   final snapshot = await docUser.get();
+  //
+  //   if (snapshot.exists) {
+  //     return UserModel.fromJson(snapshot.data()!);
+  //   }
+  //   throw {print("Error Fetching User data")};
+  // }
 }

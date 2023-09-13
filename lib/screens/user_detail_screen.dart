@@ -1,11 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:projects/providers/user_details_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../screen_routes.dart';
-import '../widgets/navigation_drawer.dart';
+
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
-  static String p="";
+
+  static String p = "";
+  static String userName = "";
+
   @override
   State<UserDetails> createState() => _UserDetailsState();
 }
@@ -14,7 +19,7 @@ class _UserDetailsState extends State<UserDetails> {
   TextEditingController _name = TextEditingController();
   TextEditingController _phone = TextEditingController();
   TextEditingController _age = TextEditingController();
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +30,8 @@ class _UserDetailsState extends State<UserDetails> {
         ),
         backgroundColor: Colors.lightBlue,
       ),
-      body:Center(
-        child :Column(
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -39,67 +44,67 @@ class _UserDetailsState extends State<UserDetails> {
             ),
             Container(
               margin: EdgeInsets.only(left: 25, right: 25),
-              padding:EdgeInsets.all(5),
+              padding: EdgeInsets.all(5),
               height: 55,
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.circular(10)),
-              child:TextField(
-                onChanged: (value){
-                  _name.text=value;
-
+              child: TextField(
+                onChanged: (value) {
+                  _name.text = value;
                 },
-
-                decoration: InputDecoration(border: InputBorder.none, hintText: 'Name'),
-              ),),
+                decoration:
+                    InputDecoration(border: InputBorder.none, hintText: 'Name'),
+              ),
+            ),
             SizedBox(
               height: 12,
             ),
-
             Container(
-              padding:EdgeInsets.all(5),
+              padding: EdgeInsets.all(5),
               height: 55,
               margin: EdgeInsets.only(left: 25, right: 25),
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.circular(10)),
-              child:TextField(
-                onChanged: (value){
+              child: TextField(
+                onChanged: (value) {
                   _phone.text = value;
                   UserDetails.p = _phone.text;
                 },
                 keyboardType: TextInputType.phone,
-                decoration: InputDecoration(border: InputBorder.none, hintText: 'Phone Number'),
-              ),),
+                decoration: InputDecoration(
+                    border: InputBorder.none, hintText: 'Phone Number'),
+              ),
+            ),
             SizedBox(
               height: 12,
             ),
-
             Container(
-              padding:EdgeInsets.all(5),
+              padding: EdgeInsets.all(5),
               height: 55,
               margin: EdgeInsets.only(left: 25, right: 25),
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.circular(10)),
-              child:TextField(
-                onChanged: (value){
-                  _age.text=value;
+              child: TextField(
+                onChanged: (value) {
+                  _age.text = value;
                 },
                 keyboardType: TextInputType.phone,
-                decoration: InputDecoration(border: InputBorder.none, hintText: 'Age'),
-              ),),
+                decoration:
+                    InputDecoration(border: InputBorder.none, hintText: 'Age'),
+              ),
+            ),
             SizedBox(
               height: 12,
             ),
-            ElevatedButton (
-              onPressed: ()async {
-                await _firebaseFirestore.collection("users").doc(_phone.text).set({
-                  'name': _name.text,
-                  'phone':int.parse(_phone.text),
-                  'age':int.parse(_age.text),
-                  // 'password': password,
-                });
+            ElevatedButton(
+              onPressed: () async {
+                context.read<UserDetailsProvider>().createUSer(
+                    name: _name.text,
+                    phone: int.parse(_phone.text),
+                    age: int.parse(_age.text));
                 Navigator.pushNamed(context, homeScreen);
               },
               child: Text(
@@ -108,10 +113,9 @@ class _UserDetailsState extends State<UserDetails> {
               ),
               style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
             )
-
           ],
-        ),),
-
+        ),
+      ),
     );
   }
 }

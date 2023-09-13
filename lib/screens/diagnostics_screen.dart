@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projects/screens/image_display_screen.dart';
+import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:projects/providers/diagnosis_provider.dart';
 import '../models/diagnostics_model.dart';
@@ -21,10 +22,11 @@ class _DiagnosticsState extends State<Diagnostics> {
   XFile? file;
 
   late DateTime dateTime;
+  // late String formattedDate;
 
   @override
   void initState() {
-    // TODO: implement initState
+
     dateTime = DateTime.now();
     super.initState();
   }
@@ -128,8 +130,8 @@ class _DiagnosticsState extends State<Diagnostics> {
                             file = await imagePicker.pickImage(
                                 source: ImageSource.camera);
                           },
-                          child: Icon(Icons.camera_alt_outlined)),
-                      SizedBox(
+                          child: const Icon(Icons.camera_alt_outlined)),
+                      const SizedBox(
                         width: 12,
                       ),
                       TextButton(
@@ -152,7 +154,6 @@ class _DiagnosticsState extends State<Diagnostics> {
                     onPressed: () async {
                       final diagName = diagNameController.text;
                       final docName = docNameController.text;
-
                       String? imageUrl;
 
                       if (file != null) {
@@ -164,7 +165,7 @@ class _DiagnosticsState extends State<Diagnostics> {
                         Reference referenceRoot =
                         FirebaseStorage.instance.ref();
                         Reference referenceDirImages = referenceRoot.child(
-                            'images/8770805985/diagnosisImages/$diagName');
+                            'images/${LoginScreen.p}/diagnosisImages/$diagName');
 
                         Reference referenceImageToUpload =
                         referenceDirImages.child(uniqueFileName);
@@ -183,7 +184,8 @@ class _DiagnosticsState extends State<Diagnostics> {
                       context.read<DiagnosticsProvider>().createDiagnostics(
                           diagName: diagName,
                           docName: docName,
-                          imageUrl: imageUrl);
+                          imageUrl: imageUrl,
+                          dateTime : dateTime.toString());
 
                       Navigator.pop(context);
                       file = null;
