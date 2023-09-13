@@ -20,10 +20,11 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   List <Widget> screens=[
+    MyHomePage(),
+    //Profile Screen
     Diagnostics(),
     Medications(),
     Tests(),
-    MyHomePage()
   ];
   int currentTab = 0;
 
@@ -57,7 +58,7 @@ class _FirstPageState extends State<FirstPage> {
                 child: Icon(
                   Icons.medical_information,
                   size: 30,
-                    color: FirstPage.selectedPageIndex == 0?Colors.white:Colors.white70
+                    color: FirstPage.selectedPageIndex == 1?Colors.white:Colors.white70
                 ),
               ),
 
@@ -70,11 +71,11 @@ class _FirstPageState extends State<FirstPage> {
                 ),
               ),
               TextButton(
-                onPressed: ()=>{selectPage(2)},
+                onPressed: ()=>{selectPage(1)},
                 child: Icon(
                   Icons.healing_rounded,
                   size: 30,
-                    color: FirstPage.selectedPageIndex == 2?Colors.white:Colors.white70,
+                    color: FirstPage.selectedPageIndex == 1?Colors.white:Colors.white70,
                 ),
               ),
             ],

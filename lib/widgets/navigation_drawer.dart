@@ -66,17 +66,25 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
               children: [
                 ListTile(
                   leading: const Icon(Icons.person_2_rounded),
+                  title: Text("Home"),
+                  onTap: () {
+                    FirstPage.selectedPageIndex=0;
+                    Navigator.pushNamed(context, firstPage);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.person_2_rounded),
                   title: Text("Profile"),
                   onTap: () {
-                    FirstPage.selectedPageIndex=3;
-                    Navigator.pushNamed(context, firstPage);
+                   // FirstPage.selectedPageIndex=1;
+                    //Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.medical_information),
                   title: Text("Diagnostics"),
                   onTap: () {
-                    FirstPage.selectedPageIndex = 0;
+                    FirstPage.selectedPageIndex = 1;
                     Navigator.pushNamed(context, firstPage);
                   },
                 ),
@@ -84,7 +92,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                   leading: const Icon(Icons.health_and_safety_outlined),
                   title: Text("Tests"),
                   onTap: () {
-                    FirstPage.selectedPageIndex = 2;
+                    FirstPage.selectedPageIndex = 3;
                     Navigator.pushNamed(context, firstPage);
                   },
                 ),
@@ -92,7 +100,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                   leading: const Icon(Icons.healing_rounded),
                   title: Text("Medication"),
                   onTap: () {
-                    FirstPage.selectedPageIndex = 1;
+                    FirstPage.selectedPageIndex = 2;
                     Navigator.pushNamed(context, firstPage);
                   },
                 ),
