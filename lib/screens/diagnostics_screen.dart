@@ -36,10 +36,10 @@ class _DiagnosticsState extends State<Diagnostics> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Nirog',
-          style: TextStyle(color: Colors.white),
+          'Diagnostics',
+          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.white,
       ),
       body: StreamBuilder<List<DiagnosticsModel>>(
           stream: context.read<DiagnosticsProvider>().readDiagnostics(),
@@ -48,8 +48,11 @@ class _DiagnosticsState extends State<Diagnostics> {
               return const Center(child: Text("Some Error Occured"));
             } else if (snapshot.hasData) {
               final diagnosis = snapshot.data!;
-              return ListView(
-                children: diagnosis.map(diagnosisCard).toList(),
+              return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ListView(
+                  children: diagnosis.map(diagnosisCard).toList(),
+                ),
               );
             } else if (!snapshot.hasData) {
               return Center(
@@ -197,23 +200,100 @@ class _DiagnosticsState extends State<Diagnostics> {
   }
 
   Widget diagnosisCard(DiagnosticsModel diagnosticsModel) =>
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    ImageScreen(
-                      imageUrl: diagnosticsModel.imageUrl,
-                    )),
-          );
-        },
-        child: Card(
-          child: ListTile(
-            leading: const Icon(Icons.medication_liquid_rounded),
-            title: Text(diagnosticsModel.diagnosisName!),
-            subtitle: Text(diagnosticsModel.doctorName!),
-          ),
-        ),
-      );
+      // GestureDetector(
+      //   onTap: () {
+      //     Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //           builder: (context) =>
+      //               ImageScreen(
+      //                 imageUrl: diagnosticsModel.imageUrl,
+      //               )),
+      //     );
+      //   },
+      //   child: Card(
+      //     child: ListTile(
+      //       leading: const Icon(Icons.medication_liquid_rounded),
+      //       title: Text(diagnosticsModel.diagnosisName!),
+      //       subtitle: Text(diagnosticsModel.doctorName!),
+      //     ),
+      //   ),
+      // );
+  Padding(
+    padding: const EdgeInsets.all(10.0),
+    child: Container(
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height / 3,
+            width: MediaQuery.of(context).size.width / 1.5,
+            // color: Colors.grey,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(blurRadius: 0.5),
+              ],
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 8.0, bottom: 8.0),
+                        child: Text(
+                          "Dr. ${diagnosticsModel.doctorName!}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold),
+                        ),
+                        //Column(
+                        //   mainAxisSize: MainAxisSize.min,
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     Text(dModel[index].doctorName!,style: TextStyle(fontSize: 12),),
+                        //     Text(dModel[index].diagnosisName!,style: TextStyle(fontWeight: FontWeight.bold),)
+                        //   ],
+                        // ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0,bottom: 20.0),
+                  child: Text(
+                    diagnosticsModel.diagnosisName!,
+                    style:
+                    TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+                  ),
+                ),
+                Center(child:Padding(
+                  padding: const EdgeInsets.only(top: .0),
+                  child: Container(
+                    height: MediaQuery.sizeOf(context).height/6,
+                    width: MediaQuery.sizeOf(context).width/1.6,
+                    // color: Colors.blue,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(22)),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/img1.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+  );
 }
