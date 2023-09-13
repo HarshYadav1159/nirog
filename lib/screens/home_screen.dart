@@ -15,7 +15,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,31 +26,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.lightBlue,
       ),
       body: Center(
-        child: FutureBuilder(future: readUser(), builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final user = snapshot.data;
-            return user == null
-                ? Center(child: CircularProgressIndicator(),)
-                : Text("Hi ${user.name.toString()}");
-          }else{
-            return SizedBox();
-          }
-        }),
+        child: FutureBuilder(
+            future: context.read<HomeScreenProvider>().readUser(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final user = snapshot.data;
+                return user == null
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : Text("Hi ${user.name.toString()}");
+              } else {
+                return SizedBox();
+              }
+            }),
       ),
       drawer: const CustomNavigationDrawer(),
     );
   }
 
-  Future<UserModel> readUser() async {
-    String id = LoginScreen.p;
-    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
-    final snapshot = await docUser.get();
-
-    if (snapshot.exists) {
-      return UserModel.fromJson(snapshot.data()!);
-    }
-    throw{
-    print("Error Fetching Data")
-    };
-  }
+// Future<UserModel> readUser() async {
+//   String id = LoginScreen.p;
+//   final docUser = FirebaseFirestore.instance.collection('users').doc(id);
+//   final snapshot = await docUser.get();
+//
+//   if (snapshot.exists) {
+//     return UserModel.fromJson(snapshot.data()!);
+//   }
+//   throw{
+//   print("Error Fetching Data")
+//   };
+// }
 }
