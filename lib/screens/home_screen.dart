@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/providers/home_screen_provider.dart';
@@ -25,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'Nirog',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor:Color(0xff7cc4f8),
       ),
       body: Column(
         children: [
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             decoration: BoxDecoration(
               // borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Colors.lightBlue,
+              color: Color(0xff7cc4f8),
 
             ),
             alignment: Alignment.center,
@@ -44,115 +45,144 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 SizedBox(height: 12),
                 Container(
-                  height:120,
+                  height:MediaQuery.of(context).size.height/4.7,
                     width:MediaQuery.of(context).size.width,
                     child:Image.asset('assets/images/profile.png')),
-                Text("Name: Jai Kumar",style: TextStyle(fontSize: 16),),
-                Text("Phone Number: 82XXXXXXX0",style: TextStyle(fontSize: 16),),
-                Text("ABHA ID: 465ERDH",style: TextStyle(fontSize: 16),),
+                SizedBox(height: 12,),
+                Text("Jai Kumar",style: TextStyle(fontSize:MediaQuery.of(context).size.height/35, fontWeight: FontWeight.bold),),
+
+                Text("Contact: 82XXXXXXX0",style: TextStyle(fontSize: MediaQuery.of(context).size.height/35, fontWeight: FontWeight.bold),),
+                // Text("Phone Number: ",style: TextStyle(fontSize: 16),),
               ],
             ),
-            height: 250,
+            height: MediaQuery.of(context).size.height/2.75,
             width:MediaQuery.of(context).size.width,
           ),),
-          SizedBox(height: 20),
+          SizedBox(
+            height: MediaQuery.of(context).size.height/50,
+          ),
           Container(
-            color: Colors.red,
+            // color: Colors.red,
             child: Column(
 
               children: [
                 Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width: MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      width: 150,
-                      child: Text("Gender:",style: TextStyle(fontSize: 16),),
+                      // color: Colors.blue,
+                      width: MediaQuery.of(context).size.width/2.3,
+                      child: Text("Gender:",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 50,),
+                    // SizedBox(width: 50,),
                     Container(
                       alignment: Alignment.center,
-                      child: Text("Male",style: TextStyle(fontSize: 16),),
+                      child: Text("Male",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/50,
                 ),
                 Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width:  MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      width: 150,
-                      child: Text("Blood Group:",style: TextStyle(fontSize: 16),),
+                      // color: Colors.blue,
+                      width: MediaQuery.of(context).size.width/2.3,
+                      child: Text("Blood Group:",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 50,),
+                    // SizedBox(width: 50,),
                     Container(
                       alignment: Alignment.center,
-                      child: Text("A+",style: TextStyle(fontSize: 16),),
+                      child: Text("A+",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/50,
                 ),
                 Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width:  MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      width: 150,
-                      child: Text("Phone:",style: TextStyle(fontSize: 16),),
+                      // color: Colors.blue,
+                      width: MediaQuery.of(context).size.width/2.3,
+                      child: Text("Phone:",style: TextStyle(fontSize:MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 50,),
+                    // SizedBox(width: 50,),
                     Container(
                       alignment: Alignment.center,
-                      child: Text("82XXXXXXX0",style: TextStyle(fontSize: 16),),
+                      child: Text("82XXXXXXX0",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/50,
                 ),
                 Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width:  MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      width: 150,
-                      child: Text("Aadhar Number:",style: TextStyle(fontSize: 16),),
+                      // color: Colors.blue,
+                      width: MediaQuery.of(context).size.width/2.3,
+                      child: Text("Aadhar Number:",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 30,),
+                    // SizedBox(width: 30,),
                     Container(
                       alignment: Alignment.center,
-                      child: Text("9999888877776666",style: TextStyle(fontSize: 16),),
+                      child: Text("999988887777",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/50,
                 ),
                 Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width:  MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      child: Text("Gender:",style: TextStyle(fontSize: 16),),
+                      // color: Colors.blue,
+                      width: MediaQuery.of(context).size.width/2.3,
+                      child: Text("Gender:",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 50,),
+
                     Container(
-                      width: 50,
+
                       alignment: Alignment.centerLeft,
-                      child: Text("Male",style: TextStyle(fontSize: 16),),
+                      child: Text("Male",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
-                ), Row(
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height/50,
+                ),
+                Row(
                   children: [
                     SizedBox(
-                      width: 20,
+                      width: MediaQuery.of(context).size.height/50,
                     ),
                     Container(
-                      color: Colors.blue,
-                      child: Text("Address:",style: TextStyle(fontSize: 16),),
+                      width: MediaQuery.of(context).size.width/2.3,
+                      alignment: Alignment.topLeft,
+                      // color: Colors.blue,
+                      child: Text("Address:",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, color: Colors.grey, fontWeight: FontWeight.bold),),
                     ),
-                    SizedBox(width: 50,),
+
                     Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text("Akshaya Metro",style: TextStyle(fontSize: 16),),
+                      alignment: Alignment.topLeft,
+                      height: MediaQuery.of(context).size.height/20,
+                      child: AutoSizeText("Akshaya Metropolis",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),maxLines: 2,),
                     )
                   ],
                 ),

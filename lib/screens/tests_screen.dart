@@ -10,10 +10,10 @@ class Tests extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Nirog',
+          'Tests',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor:Color(0xff13bcfb),
       ),
       body: Center(
         child: Text("All your Tests will be here"),

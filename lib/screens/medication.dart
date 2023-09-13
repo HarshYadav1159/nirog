@@ -10,10 +10,10 @@ class Medications extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Nirog',
+          'Medication',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xff13bcfb),
       ),
       body: Center(
         child: Text("All your Medications will be here"),

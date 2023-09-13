@@ -28,7 +28,7 @@ class _UserDetailsState extends State<UserDetails> {
           'Personal Details',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xff13bcfb),
       ),
       body: Center(
         child: Column(

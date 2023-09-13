@@ -36,10 +36,10 @@ class _DiagnosticsState extends State<Diagnostics> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Nirog',
+          'Diagnosis',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xff13bcfb),
       ),
       body: StreamBuilder<List<DiagnosticsModel>>(
           stream: context.read<DiagnosticsProvider>().readDiagnostics(),
