@@ -11,9 +11,20 @@ class Tests extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Tests',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        backgroundColor:Color(0xff13bcfb),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
+        backgroundColor:Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/providers/home_screen_provider.dart';
@@ -22,25 +23,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text(
           'Nirog',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor:Color(0xff7cc4f8),
       ),
-      body: Center(
-        child: FutureBuilder(
-            future: context.read<HomeScreenProvider>().readUser(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final user = snapshot.data;
-                return user == null
-                    ? Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : Text("Hi ${user.name.toString()}");
-              } else {
-                return SizedBox();
-              }
-            }),
+      // body: Center(
+      //   child: FutureBuilder(
+      //       future: context.read<HomeScreenProvider>().readUser(),
+      //       builder: (context, snapshot) {
+      //         if (snapshot.hasData) {
+      //           final user = snapshot.data;
+      //           return user == null
+      //               ? Center(
+      //                   child: CircularProgressIndicator(),
+      //                 )
+      //               : Text("Hi ${user.name.toString()}");
+      //         } else {
+      //           return SizedBox();
+      //         }
+      //       }),
       body: Column(
         children: [
           // SizedBox(height: 12),
@@ -132,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     // SizedBox(width: 50,),
                     Container(
                       alignment: Alignment.center,
-                      child: Text("82XXXXXXX0",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
+                      child: Text("8299026397",style: TextStyle(fontSize: MediaQuery.of(context).size.height/42, fontWeight: FontWeight.bold),),
                     )
                   ],
                 ),

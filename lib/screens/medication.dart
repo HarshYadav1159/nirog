@@ -9,9 +9,13 @@ class Medications extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          'Medication',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.add,
               color: Colors.black,
             ),
@@ -20,11 +24,7 @@ class Medications extends StatelessWidget {
             },
           )
         ],
-        title: const Text(
-          'Medication',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Color(0xff13bcfb),
+        backgroundColor:Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
