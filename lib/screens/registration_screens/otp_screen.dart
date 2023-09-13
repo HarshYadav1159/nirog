@@ -8,7 +8,7 @@ import 'package:projects/screens/registration_screens/login_screen.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
-
+  static String _id="";
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       home: const LoginScreen(),
       initialRoute: loginScreen,
       routes: {
-          userDetails: (context)=> const UserDetails(),
+          userDetails: (context)=> UserDetails(),
           otpScreen: (context)=> const OtpScreen(),
           loginScreen : (context) => const LoginScreen(),
           homeScreen : (context) => const MyHomePage(),

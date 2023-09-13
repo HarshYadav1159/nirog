@@ -14,7 +14,7 @@ class DiagnosticsProvider with ChangeNotifier {
         .collection('diagnosis')
         .doc();
     final diagnostics =
-        DiagnosticsModel(diagnosisName: diagName, doctorName: docName,imageUrl: imageUrl);
+    DiagnosticsModel(diagnosisName: diagName, doctorName: docName,imageUrl: imageUrl);
     final diagnosticsJson = diagnostics.toJson();
     await docUser.set(diagnosticsJson);
   }
