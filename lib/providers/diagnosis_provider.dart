@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/models/diagnostics_model.dart';
+import 'package:projects/screens/registration_screens/login_screen.dart';
 
 class DiagnosticsProvider with ChangeNotifier {
-  String userId = "8299026397";
+  String userId = LoginScreen.p;
 
   //Write Data
   Future createDiagnostics(
