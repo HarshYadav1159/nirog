@@ -8,8 +8,9 @@ import 'package:projects/screens/diagnostics_screen.dart';
 import 'package:projects/screens/tests_screen.dart';
 
 import '../screen_routes.dart';
-import '../screens/profile_screen.dart';
+import '../screens/home_screen.dart';
 import '../screens/medication.dart';
+import '../screens/profile_screen.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -21,11 +22,10 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   List <Widget> screens=[
     MyHomePage(),
-    //Profile Screen
     Diagnostics(),
     Medications(),
     Tests(),
-    ProfileScreen()
+    ProfileScreen(),
   ];
   int currentTab = 0;
 
@@ -57,18 +57,26 @@ class _FirstPageState extends State<FirstPage> {
               TextButton(
                 onPressed: ()=>selectPage(0),
                 child: Icon(
+                    Icons.home,
+                    size: 30,
+                    color: FirstPage.selectedPageIndex == 0?Colors.white:Colors.white70
+                ),
+              ),
+              TextButton(
+                onPressed: ()=>selectPage(1),
+                child: Icon(
                   Icons.medical_information,
                   size: 30,
-                    color: FirstPage.selectedPageIndex == 0?Colors.white:Colors.white70
+                    color: FirstPage.selectedPageIndex == 1?Colors.white:Colors.white70
                 ),
               ),
 
               TextButton(
-                onPressed: ()=>{selectPage(1)},
+                onPressed: ()=>{selectPage(3)},
                 child: Icon(
                   Icons.health_and_safety,
                   size: 30,
-                    color: FirstPage.selectedPageIndex == 1?Colors.white:Colors.white70,
+                    color: FirstPage.selectedPageIndex == 3?Colors.white:Colors.white70,
                 ),
               ),
               TextButton(

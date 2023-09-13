@@ -65,7 +65,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
             Column(
               children: [
                 ListTile(
-                  leading: const Icon(Icons.person_2_rounded),
+                  leading: const Icon(Icons.home),
                   title: Text("Home"),
                   onTap: () {
                     FirstPage.selectedPageIndex=0;
@@ -76,8 +76,8 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                   leading: const Icon(Icons.person_2_rounded),
                   title: Text("Profile"),
                   onTap: () {
-                   // FirstPage.selectedPageIndex=1;
-                    //Navigator.pushNamed(context, firstPage);
+                   FirstPage.selectedPageIndex=4;
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
