@@ -6,3 +6,4 @@ const String testScreen = "testScreen";
 const String medicationScreen = "medicationScreen";
 const String imageScreen = "imageScreen";
 const String userDetails = "userDetails";
+const String firstPage = "firstPage";

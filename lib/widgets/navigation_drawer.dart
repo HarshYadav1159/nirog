@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
+import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/user_detail_screen.dart';
 
 import '../models/user.dart';
@@ -34,24 +35,24 @@ class CustomNavigationDrawer extends StatelessWidget {
           width: 108,
         ),
         SizedBox(height: 12),
-        FutureBuilder(future: readUser(), builder: (context,snapshot){
-          if(snapshot.hasData){
-            final user = snapshot.data;
-
-            return user == null ? Center(child: Text('No User'),) : Text(user.name!);
-          }else{
-            return SizedBox();
-          }
-        }),
-        FutureBuilder(future: readUser(), builder: (context,snapshot){
-          if(snapshot.hasData){
-            final user = snapshot.data;
-
-            return user == null ? Center(child: Text('No User'),) : Text(user.phone!.toString());
-          }else{
-            return SizedBox();
-          }
-        })
+        // FutureBuilder(future: readUser(), builder: (context,snapshot){
+        //   if(snapshot.hasData){
+        //     final user = snapshot.data;
+        //
+        //     return user == null ? Center(child: Text('No User'),) : Text(user.name!);
+        //   }else{
+        //     return SizedBox();
+        //   }
+        // }),
+        // FutureBuilder(future: readUser(), builder: (context,snapshot){
+        //   if(snapshot.hasData){
+        //     final user = snapshot.data;
+        //
+        //     return user == null ? Center(child: Text('No User'),) : Text(user.phone!.toString());
+        //   }else{
+        //     return SizedBox();
+        //   }
+        // })
       ],
     ),
   );
@@ -90,7 +91,7 @@ class CustomNavigationDrawer extends StatelessWidget {
   );
 
   Future<UserModel> readUser() async {
-    String id = UserDetails.p;
+    String id = LoginScreen.p;
     final docUser = FirebaseFirestore.instance.collection('users').doc(id);
     final snapshot = await docUser.get();
 
