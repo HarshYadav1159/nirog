@@ -1,6 +1,6 @@
 const String loginScreen = "login";
 const String otpScreen = "otp";
-const String homeScreen = "homescreen";
+const String profileScreen = "profilescreen";
 const String diagnosticScreen = "diagScreen";
 const String testScreen = "testScreen";
 const String medicationScreen = "medicationScreen";

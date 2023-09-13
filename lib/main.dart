@@ -7,7 +7,7 @@ import 'package:projects/providers/tests_provider.dart';
 import 'package:projects/providers/user_details_provider.dart';
 import 'package:projects/screen_routes.dart';
 import 'package:projects/screens/diagnostics_screen.dart';
-import 'package:projects/screens/home_screen.dart';
+import 'package:projects/screens/profile_screen.dart';
 import 'package:projects/screens/image_display_screen.dart';
 import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/medication.dart';
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           userDetails: (context)=> UserDetails(),
           otpScreen: (context)=> const OtpScreen(),
           loginScreen : (context) => const LoginScreen(),
-          homeScreen : (context) => const MyHomePage(),
+          profileScreen : (context) => const ProfileScreen(),
           diagnosticScreen : (context) => const Diagnostics(),
           testScreen : (context) => const Tests(),
           medicationScreen : (context) => const Medications(),

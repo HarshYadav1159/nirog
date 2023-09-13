@@ -8,7 +8,7 @@ import 'package:projects/screens/diagnostics_screen.dart';
 import 'package:projects/screens/tests_screen.dart';
 
 import '../screen_routes.dart';
-import '../screens/home_screen.dart';
+import '../screens/profile_screen.dart';
 import '../screens/medication.dart';
 
 class FirstPage extends StatefulWidget {
@@ -23,7 +23,7 @@ class _FirstPageState extends State<FirstPage> {
     Diagnostics(),
     Medications(),
     Tests(),
-    MyHomePage()
+    ProfileScreen()
   ];
   int currentTab = 0;
 

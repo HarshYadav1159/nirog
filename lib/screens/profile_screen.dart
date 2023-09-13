@@ -8,19 +8,20 @@ import 'package:provider/provider.dart';
 import '../models/user.dart';
 import '../widgets/navigation_drawer.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: const Text(
           'Nirog',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

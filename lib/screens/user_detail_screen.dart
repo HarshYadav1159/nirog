@@ -105,7 +105,7 @@ class _UserDetailsState extends State<UserDetails> {
                     name: _name.text,
                     phone: int.parse(_phone.text),
                     age: int.parse(_age.text));
-                Navigator.pushNamed(context, homeScreen);
+                Navigator.pushNamed(context, profileScreen);
               },
               child: Text(
                 'Submit',
