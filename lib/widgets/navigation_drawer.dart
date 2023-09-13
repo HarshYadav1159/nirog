@@ -108,7 +108,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                   leading: const Icon(Icons.logout),
                   title: Text("Logout"),
                   onTap: () {
-                    Navigator.pushNamed(context, firstPage);
+                    Navigator.pushNamed(context, loginScreen);
                   },
                 ),
               ],

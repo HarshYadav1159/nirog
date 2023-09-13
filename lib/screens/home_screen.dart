@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 3,
+            height: MediaQuery.of(context).size.height / 2.7,
             color: Color(0xFF7CC4F8),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -93,7 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 0,
+            bottom: 0,
+            left: 8,
+            right: 8),
             child: Text(
               "Recent",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -101,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(13.0),
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: dModel.length,
@@ -112,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Column(
                           children: [
                             Container(
-                              height: MediaQuery.of(context).size.height / 3,
+                              height: MediaQuery.of(context).size.height /2.98,
                               width: MediaQuery.of(context).size.width / 1.5,
                               // color: Colors.grey,
                               decoration: const BoxDecoration(
@@ -153,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 12.0,bottom: 20.0),
+                                    padding: const EdgeInsets.only(left: 12.0,bottom: 12.0),
                                     child: Text(
                                       dModel[index].diagnosisName!,
                                       style:
