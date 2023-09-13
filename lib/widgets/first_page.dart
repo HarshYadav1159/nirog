@@ -20,6 +20,8 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   List <Widget> screens=[
+    MyHomePage(),
+    //Profile Screen
     Diagnostics(),
     Medications(),
     Tests(),
