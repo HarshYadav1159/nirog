@@ -9,9 +9,20 @@ class Tests extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
         title: const Text(
           'Reports(3)',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
         ),
         backgroundColor: Colors.white,
       ),
