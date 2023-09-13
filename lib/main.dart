@@ -13,6 +13,7 @@ import 'package:projects/screens/registration_screens/login_screen.dart';
 import 'package:projects/screens/medication.dart';
 import 'package:projects/screens/registration_screens/otp_screen.dart';
 import 'package:projects/screens/tests_screen.dart';
+import 'package:projects/widgets/first_page.dart';
 import 'package:provider/provider.dart';
 import 'package:projects/screens/user_detail_screen.dart';
 
@@ -46,15 +47,19 @@ class MyApp extends StatelessWidget {
       home: const LoginScreen(),
       initialRoute: loginScreen,
       routes: {
-        userDetails: (context) => UserDetails(),
-        otpScreen: (context) => const OtpScreen(),
-        loginScreen: (context) => const LoginScreen(),
-        homeScreen: (context) => const MyHomePage(),
-        diagnosticScreen: (context) => const Diagnostics(),
-        testScreen: (context) => const Tests(),
-        medicationScreen: (context) => const Medications(),
-        imageScreen: (context) => const ImageScreen(),
+          firstPage: (context)=> const FirstPage(),
+          userDetails: (context)=> UserDetails(),
+          otpScreen: (context)=> const OtpScreen(),
+          loginScreen : (context) => const LoginScreen(),
+          homeScreen : (context) => const MyHomePage(),
+          diagnosticScreen : (context) => const Diagnostics(),
+          testScreen : (context) => const Tests(),
+          medicationScreen : (context) => const Medications(),
+          imageScreen : (context) =>  const ImageScreen(),
       },
     );
   }
 }
+
+
+

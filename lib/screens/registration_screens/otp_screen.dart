@@ -163,7 +163,7 @@ Future<bool> checkUser()async{
 
 
                   if(await checkUser())
-                    Navigator.pushNamed(context, homeScreen);
+                    Navigator.pushNamed(context, firstPage);
                   else
                     Navigator.pushNamed(context, userDetails);
 

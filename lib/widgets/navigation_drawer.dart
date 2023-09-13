@@ -1,11 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:projects/providers/home_screen_provider.dart';
 import 'package:projects/screen_routes.dart';
+import 'package:projects/screens/user_detail_screen.dart';
+import 'package:projects/widgets/first_page.dart';
 import 'package:provider/provider.dart';
 
-class CustomNavigationDrawer extends StatelessWidget {
+import '../models/user.dart';
+import '../providers/home_screen_provider.dart';
+
+class CustomNavigationDrawer extends StatefulWidget {
   const CustomNavigationDrawer({super.key});
 
+  @override
+  State<CustomNavigationDrawer> createState() => _CustomNavigationDrawerState();
+}
+
+class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -56,35 +68,39 @@ class CustomNavigationDrawer extends StatelessWidget {
                   leading: const Icon(Icons.person_2_rounded),
                   title: Text("Profile"),
                   onTap: () {
-                    Navigator.pushNamed(context, homeScreen);
+                    FirstPage.selectedPageIndex=3;
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.medical_information),
                   title: Text("Diagnostics"),
                   onTap: () {
-                    Navigator.pushNamed(context, diagnosticScreen);
+                    FirstPage.selectedPageIndex = 0;
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.health_and_safety_outlined),
                   title: Text("Tests"),
                   onTap: () {
-                    Navigator.pushNamed(context, testScreen);
+                    FirstPage.selectedPageIndex = 2;
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.healing_rounded),
                   title: Text("Medication"),
                   onTap: () {
-                    Navigator.pushNamed(context, medicationScreen);
+                    FirstPage.selectedPageIndex = 1;
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.logout),
                   title: Text("Logout"),
                   onTap: () {
-                    Navigator.pushNamed(context, loginScreen);
+                    Navigator.pushNamed(context, firstPage);
                   },
                 ),
               ],

@@ -10,10 +10,21 @@ class Tests extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Reports(3)',
-          style: TextStyle(color: Colors.black),
+          'Tests',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
+        backgroundColor:Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -76,6 +87,5 @@ class Tests extends StatelessWidget {
       ),
       drawer: const CustomNavigationDrawer(),
     );
-
   }
 }
