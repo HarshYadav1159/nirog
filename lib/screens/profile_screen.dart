@@ -64,8 +64,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     width:MediaQuery.of(context).size.width,
                     child:Image.asset('assets/images/profile.png')),
                 SizedBox(height: 12,),
-                Text("Jai Kumar",style: TextStyle(fontSize:MediaQuery.of(context).size.height/35, fontWeight: FontWeight.bold),),
-
+                FutureBuilder(
+                    future: context.read<HomeScreenProvider>().readUser(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final user = snapshot.data;
+                        return user == null
+                            ? Center(
+                          child: Text("User"),
+                        )
+                            : Column(
+                          children: [
+                            Text(user.name!,style: TextStyle(fontSize: MediaQuery.of(context).size.height/35, fontWeight: FontWeight.bold),),
+                          ],
+                        );
+                      } else {
+                        return SizedBox();
+                      }
+                    }),
                 Text("Contact: 82XXXXXXX0",style: TextStyle(fontSize: MediaQuery.of(context).size.height/35, fontWeight: FontWeight.bold),),
                 // Text("Phone Number: ",style: TextStyle(fontSize: 16),),
               ],

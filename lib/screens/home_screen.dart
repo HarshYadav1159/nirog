@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projects/models/diagnostics_model.dart';
 import 'package:projects/providers/home_screen_provider.dart';
 import 'package:projects/screens/registration_screens/login_screen.dart';
+import 'package:projects/screens/user_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user.dart';
@@ -56,9 +57,24 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
-                      Text("Jai Kumar",
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
+                      FutureBuilder(
+                          future: context.read<HomeScreenProvider>().readUser(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              final user = snapshot.data;
+                              return user == null
+                                  ? Center(
+                                child: Text("No User"),
+                              )
+                                  : Column(
+                                children: [
+                                  Text(user.name!,style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                                ],
+                              );
+                            } else {
+                              return SizedBox();
+                            }
+                          }),
                       SizedBox(
                         height: 12,
                       ),

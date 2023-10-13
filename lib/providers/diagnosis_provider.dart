@@ -10,7 +10,7 @@ class DiagnosticsProvider with ChangeNotifier {
   Future createDiagnostics(
       {required String diagName, required String docName, String? imageUrl, required String dateTime}) async {
     final docUser = FirebaseFirestore.instance
-        .collection('users')
+        .collection('uses')
         .doc(userId)
         .collection('diagnosis')
         .doc();

@@ -10,7 +10,7 @@ class HomeScreenProvider with ChangeNotifier{
 
   Future<UserModel> readUser() async {
     String id = LoginScreen.p;
-    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
+    final docUser = FirebaseFirestore.instance.collection('usrs').doc(id);
     final snapshot = await docUser.get();
 
     if (snapshot.exists) {

@@ -1,13 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/screen_routes.dart';
-import 'package:projects/screens/user_detail_screen.dart';
 import 'package:projects/widgets/first_page.dart';
 import 'package:provider/provider.dart';
-
-import '../models/user.dart';
 import '../providers/home_screen_provider.dart';
 
 class CustomNavigationDrawer extends StatefulWidget {
@@ -26,7 +20,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              color: Colors.lightBlue,
+              color: Color(0xFF7CC4F8),
               padding: EdgeInsets.only(
                   top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
               child: Column(
@@ -50,7 +44,7 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer> {
                                 )
                               : Column(
                                   children: [
-                                    Text(user.name!),
+                                    Text(user.name!,style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
                                     SizedBox(height: 2),
                                     Text(user.phone!.toString())
                                   ],

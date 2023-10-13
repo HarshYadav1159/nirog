@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ImageScreen extends StatefulWidget {
   final String? imageUrl;
+  final String? name;
 
-  const ImageScreen({super.key, this.imageUrl});
+  const ImageScreen({super.key, this.imageUrl, this.name});
 
   @override
   State<ImageScreen> createState() => _ImageScreenState();
@@ -14,11 +15,11 @@ class _ImageScreenState extends State<ImageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Nirog',
-            style: TextStyle(color: Colors.white),
+          title: Text(
+            '${widget.name}',
+            style: TextStyle(color: Colors.black),
           ),
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: Colors.white,
         ),
         body: Center(
           child: Container(

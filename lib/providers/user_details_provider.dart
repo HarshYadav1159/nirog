@@ -6,7 +6,7 @@ import 'package:projects/screens/user_detail_screen.dart';
 class UserDetailsProvider with ChangeNotifier {
 
   Future createUSer({String? name, int? phone, int? age}) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc(phone.toString());
+    final docUser = FirebaseFirestore.instance.collection('usrs').doc(phone.toString());
     final user = UserModel(name: name,phone: phone,age: age);
     final userJson = user.toJson();
     await docUser.set(userJson);
